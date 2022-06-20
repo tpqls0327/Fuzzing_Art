@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>login</h1>
+    {% if error.state %}
+    <h2>{{error.msg}}</h2>
+    {% endif %}
+
+    <form action="{%url 'login' %}" method="POST">
+        {% csrf_token %}
+        <input type="text" required name="user_id">
+        <input type="password" required name="user_pw">
+        <button type="submit">
+            Login
+        </button>
+    </form>
+    
+    <a href="{%url 'signup' %}">아직 회원이 아니신가요?</a>
+</body>
+</html>

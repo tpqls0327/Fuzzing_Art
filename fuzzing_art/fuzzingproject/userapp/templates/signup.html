@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>signup</h1>
+    {% if error.state %}
+        <h2>{{error.msg}}</h2>
+    {% endif %}
+
+    <form action="{%url 'signup' %}" method="post">
+        {% csrf_token %}    
+        <div>
+            <input class="" type="text" name="user_id" required placeholder="아이디 입력">
+        </div>
+        <div>
+            <input class="" type="password" name="user_pw" required placeholder="패스워드 입력">
+        </div>        
+        <div>
+            <input class="" type="password" name="user_pw_check" required placeholder="패스워드 확인입력">
+        </div>
+        <div>
+            <input class="" type="email" name="user_email" required placeholder="이메일 입력">
+        </div>        
+        <div>
+            <input class="" type="text" name="user_name" required placeholder="이름 입력">
+        </div>        
+        <div>
+            <input class="" type="text" name="user_nickname" required placeholder="별명 입력">
+        </div>        
+        <div>
+            <input class="" type="radio" name="user_gender" checked="checked" value=0>여자
+            <input class="" type="radio" name="user_gender" value=1>남자
+        </div>        
+        <div>
+            <input class="" type="number" name="user_age" required placeholder="나이 입력">
+        </div>        
+        <div>
+            <input class="" type="text" name="user_address" required placeholder="주소 입력">
+        </div>
+        <button type="submit">
+            회원가입하기
+        </button>
+    </form>
+</body>
+</html>

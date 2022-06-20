@@ -1,0 +1,85 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="title"><h1>Home</h1></div>
+    <div>
+        {% if user.is_authenticated %}
+        <li>
+            <a class="page-scroll"> Hello, {{user.get_username}} !</a>
+        </li>
+        <li>
+            <a class="page-scroll" href="{% url 'logout' %}">Logout</a>
+        </li>
+        <li>
+            <a class="page-scroll" href="{% url 'mypage' %}">Mypage</a>
+        </li>
+        {% else %}
+        <li>
+            <a class="page-scroll" href="{% url 'signup' %}">Signup</a>
+        </li>
+        <li>
+            <a class="page-scroll" href="{% url 'login' %}">Login</a>
+        </li>
+        {% endif %}
+    </div>
+    
+    <div class="category">
+        <li>
+            <a href="">퍼징아트</a>
+        </li>
+        <li>
+            <a href="">상세검색</a>
+        </li>
+        <li>
+            <a href="">그림추천</a>
+        </li>
+        <li>
+            <a href="">작가정보</a>
+        </li>
+        <li>
+            <a href="">이벤트</a>
+        </li>
+        <li>
+            <a href="">주문제작</a>
+        </li>
+        <li>
+            <a href="">리뷰모음</a>
+        </li>
+        <li>
+            <a href="">고객센터</a>
+        </li>
+    </div>
+    
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+          apiKey: "AIzaSyCUJcWb9F3WQecLFu2tQw2tkim03vu50Mk",
+          authDomain: "fuzzingart.firebaseapp.com",
+          projectId: "fuzzingart",
+          storageBucket: "fuzzingart.appspot.com",
+          messagingSenderId: "394986318816",
+          appId: "1:394986318816:web:bcf249f6e734fdaf875985",
+          measurementId: "G-F5YFNP4E9J"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+      </script>
+</body>
+</html>
