@@ -136,7 +136,7 @@ celerybeat.pid
 .env
 .venv
 .model
-mode/
+model/
 env/
 venv/
 ENV/
